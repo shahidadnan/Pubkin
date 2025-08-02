@@ -2,6 +2,7 @@ from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage, SystemMessage
 import os
 from dotenv import load_dotenv
+import streamlit as st
 
 
 
@@ -9,12 +10,13 @@ class queryConvert:
     def __init__(self, query:str):
         load_dotenv()
         self.query = query
-        os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
-        
+        # os.environ["GROQ_API_KEY"]= os.getenv("GROQ_API_KEY")
+        API_KEY = st.secrets["GROQ_API_KEY"]
+
     def query_convert(self):
 
         # Initialize Mixtral model
-        llm = ChatGroq(model_name="moonshotai/kimi-k2-instruct", temperature=0.2)
+        llm = ChatGroq(model_name="moonshotai/kimi-k2-instruct", temperature=0.2, groq_api_key=API_KEY)
 
         # Example user query
         # user_query = "design and synthesis of gsk3 inhibitors"

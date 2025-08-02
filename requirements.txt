@@ -9,3 +9,5 @@ langchain-groq
 sentence-transformers
 streamlit
 python-dotenv
+pandas
+biopython
