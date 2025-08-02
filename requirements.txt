@@ -1,0 +1,11 @@
+torch
+transformers
+numpy
+faiss-cpu
+langchain
+langchain-core
+langchain-community
+langchain-groq
+sentence-transformers
+streamlit
+python-dotenv
