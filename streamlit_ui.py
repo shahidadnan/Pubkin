@@ -45,7 +45,7 @@ class StreamlitApp:
                     articles = querier.fetch_article_details(pmids)
                     st.success("Articles retrieved!")
 
-                    st.write("SearchWork type")
+                    
                     model = self.model
                     searcher = self.SearchWork(model, query, articles )
                     
