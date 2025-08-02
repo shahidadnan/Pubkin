@@ -66,7 +66,10 @@ class StreamlitApp:
                         with st.expander(expander_label):
                             st.markdown(f"**PMID:** {item['pmid']}")
                             st.markdown(f"**Abstract:** {item['abstract']}")
-                            # st.markdown(f"[🔗 View on PubMed](https://pubmed.ncbi.nlm.nih.gov/{item['pmid']}/)")
-                            st.markdown(f"[🔗 View on DOI](https://doi.org/{item['doi']})")
+                            if item['doi']:
+                                st.markdown(f"[🔗 View on DOI](https://doi.org/{item['doi']})")
+                            else:
+                                st.markdown(f"[🔗 View on PubMed](https://pubmed.ncbi.nlm.nih.gov/{item['pmid']}/)")
+
                 except Exception as e:
                     st.error(f"❗ Error: {str(e)}")
