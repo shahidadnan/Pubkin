@@ -6,9 +6,17 @@ from searchworkflow_faiss import SearchWork_faiss
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from wrapPubmed import PubMedBERTEmbedding
 from query_conversion import queryConvert
+import streamlit as st
+
+@st.cache_resource(show_spinner="🔬 Loading PubMedBERT model...")
+
+def load_model():
+    return PubMedBERTEmbedding()
 
 
-model = PubMedBERTEmbedding()
+# Use cached model
+model = load_model()
+
     
 app = StreamlitApp(model, PubMedQuerier, SearchWork_faiss, queryConvert)
     

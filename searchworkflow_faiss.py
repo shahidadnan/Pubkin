@@ -19,6 +19,7 @@ class SearchWork_faiss:
             doi = article.get('doi', '')
             journal = article.get('journal')
             pub_year = article.get('pub_year')
+            pub_type = article.get('publication_types')
 
             if not pmid:
                 continue
@@ -41,7 +42,8 @@ class SearchWork_faiss:
                     "authors": authors,
                     "doi": doi,
                     "journal": journal,
-                    "pub_year": pub_year
+                    "pub_year": pub_year,
+                    "publication_types":pub_type
 
                 }
                 documents.append(Document(page_content=content, metadata=metadata))
@@ -79,8 +81,9 @@ class SearchWork_faiss:
                 "chunk": doc.metadata["chunk"],
                 "authors": doc.metadata["authors"],
                 "doi": doc.metadata["doi"],
-                    "journal": doc.metadata["journal"],
-                    "pub_year": doc.metadata["pub_year"]
+                "journal": doc.metadata["journal"],
+                "pub_year": doc.metadata["pub_year"],
+                "publication_types":doc.metadata["publication_types"]
 })
 
         return sorted(formatted, key=lambda x: x["similarity"], reverse=True)
