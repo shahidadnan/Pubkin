@@ -8,7 +8,7 @@ from wrapPubmed import PubMedBERTEmbedding
 from query_conversion import queryConvert
 import streamlit as st
 
-@st.cache_resource(show_spinner="🔬 Loading PubMedBERT model...")
+@st.cache_resource(show_spinner="🔬 Loading Pubkin...")
 
 def load_model():
     return PubMedBERTEmbedding()
