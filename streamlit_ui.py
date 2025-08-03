@@ -38,7 +38,7 @@ class StreamlitApp:
                 st.warning("Both email and query are required.")
                 return
 
-            with st.spinner("🔄 Fetching data from PubMed..."):
+            with st.spinner("🔄 Fetching data ..."):
                 try:
                     # Initialize backend classes
                     querier = self.PubMedQuerier(email=email)
@@ -101,7 +101,7 @@ class StreamlitApp:
                 expander_label = f"""**{title}**
                     \n {journal} · {pub_year}"""
                 with st.expander(expander_label):
-                    st.markdown(f"**PMID:** {item['pmid']}")
+                    # st.markdown(f"**PMID:** {item['pmid']}")
                     st.markdown(f"**Abstract:** {item['abstract']}")
                     if item['doi']:
                         st.markdown(f"[🔗 View on DOI](https://doi.org/{item['doi']})")
